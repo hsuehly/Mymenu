@@ -12,7 +12,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var models: [Model] = []
+//    @State var models: [Model] = []
     @ObservedObject private var viewModel = ViewModel()
     @State var DefaultTime:String = "午餐"
 
@@ -45,7 +45,10 @@ struct ContentView: View {
             ChooseBtn()
         }
         .onAppear() {
+            print(viewModel.currentTimeName,"name")
             DefaultTime = viewModel.currentTimeName
+//            viewModel.getMealMessage(time: DefaultTime)
+            
         }
         // 选择餐段
         .actionSheet(isPresented: $showChooseTimeSheet, content: { ChooseTimeSheet })
@@ -57,31 +60,39 @@ struct ContentView: View {
             title: Text("餐段"),message: Text("请选择餐段"),buttons:[
                 .default(Text("早餐"), action: {
                     self.DefaultTime = "早餐"
-                    viewModel.getMenu()
+//                    viewModel.getMenu()
+                    viewModel.getMealMessage(time: "早餐")
                     DefaultImageURL = "https://img0.baidu.com/it/u=156558209,1663147989&fm=253&fmt=auto&app=138&f=JPEG?w=626&h=500"
                     DefaultName = "今天早餐想吃点啥？"
                 }),
                 .default(Text("午餐"), action: {
                     self.DefaultTime = "午餐"
-                    viewModel.getMenu()
+//                    viewModel.getMenu()
+                    viewModel.getMealMessage(time: "午餐")
+
                     DefaultImageURL = "https://img0.baidu.com/it/u=156558209,1663147989&fm=253&fmt=auto&app=138&f=JPEG?w=626&h=500"
                     DefaultName = "今天午餐想吃点啥？"
                 }),
                 .default(Text("下午茶"), action: {
                     self.DefaultTime = "下午茶"
-                    viewModel.getMenu()
+//                    viewModel.getMenu()
+                    viewModel.getMealMessage(time: "下午茶")
                     DefaultImageURL = "https://img0.baidu.com/it/u=156558209,1663147989&fm=253&fmt=auto&app=138&f=JPEG?w=626&h=500"
                     DefaultName = "今天下午茶想喝点啥？"
                 }),
                 .default(Text("晚餐"), action: {
                     self.DefaultTime = "晚餐"
-                    viewModel.getMenu()
+//                    viewModel.getMenu()
+                    viewModel.getMealMessage(time: "晚餐")
+
                     DefaultImageURL = "https://img0.baidu.com/it/u=156558209,1663147989&fm=253&fmt=auto&app=138&f=JPEG?w=626&h=500"
                     DefaultName = "今天晚餐想吃点啥？"
                 }),
                 .default(Text("宵夜"), action: {
                     self.DefaultTime = "宵夜"
-                    viewModel.getMenu()
+//                    viewModel.getMenu()
+                    viewModel.getMealMessage(time: "宵夜")
+
                     DefaultImageURL = "https://img0.baidu.com/it/u=156558209,1663147989&fm=253&fmt=auto&app=138&f=JPEG?w=626&h=500"
                     DefaultName = "今天宵夜想吃点啥？"
                 }),
@@ -94,10 +105,10 @@ struct ContentView: View {
     // 推荐按钮
     func ChooseBtn() -> some View {
         Button(action: {
-            viewModel.getMealMessage(time: DefaultTime)
+//            viewModel.getMealMessage(time: DefaultTime)
             viewModel.getRandomFood()
-            DefaultImageURL = viewModel.currentImageURL
-            DefaultName = viewModel.currentName
+//            DefaultImageURL = viewModel.currentImageURL
+//            DefaultName = viewModel.currentName
             //
             self.showResult = true
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {

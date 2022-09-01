@@ -6,8 +6,13 @@
 //
 import SwiftUI
 
-class Model: Decodable {
+struct Model: Decodable {
     var foodTime: String
     var foodName: String
     var foodImageURL: String
+}
+struct FoodMenu: Decodable {
+    var code: Int
+    var msg: String
+    var data:String
 }
