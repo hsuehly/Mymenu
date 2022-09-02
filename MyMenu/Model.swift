@@ -14,5 +14,5 @@ struct Model: Decodable {
 struct FoodMenu: Decodable {
     var code: Int
     var msg: String
-    var data:String
+    var data:[Model]
 }

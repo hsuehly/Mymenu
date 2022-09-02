@@ -21,7 +21,7 @@ class ViewModel: ObservableObject {
 //    let DataURL = "https://itgowo.com/order.json"
     // http://localhost:8080/api/v1/menu/1
     let DataURL2 = "http://10.1.101.29:8080/api/v1/menu/1"
-    
+//    let DataURL2 = "http://food.yangtuyun.cn/api/v1/menu/1"
 
 
     init() {
@@ -86,18 +86,21 @@ class ViewModel: ObservableObject {
             
             do {
 //                let meals = try JSONDecoder().decode([Model].self, from: data)
-                let meals = try JSONDecoder().decode(FoodMenu.self, from: data)
-                let str = meals.data.data(using: .utf8)
-                let foodMenu = try JSONDecoder().decode([Model].self, from: str!)
-                
-
-                DispatchQueue.main.async {
-                    self.models = foodMenu
-                    self.currentModels = foodMenu.filter{ $0.foodTime.lowercased().contains(self.currentTimeName)}
-                    print(self.currentModels.count,"currentModels")
-                    self.isRead = false
-                    print("请求成功")
+                let resData = try JSONDecoder().decode(FoodMenu.self, from: data)
+//                let str = meals.data.data(using: .utf8)
+//                let foodMenu = try JSONDecoder().decode([Model].self, from: str!)
+                if resData.code == 200 {
+                    DispatchQueue.main.async {
+                        self.models = resData.data
+                        self.currentModels = resData.data.filter{ $0.foodTime.lowercased().contains(self.currentTimeName)}
+                        print(self.currentModels.count,"currentModels")
+                        self.isRead = false
+                        print("请求成功")
+                    }
+                } else {
+                    print("服务错误")
                 }
+
             } catch {
                 print(error)
             }

@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		778C485A28C1ADD300F46335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		77D383A828A3BAF900CAA438 /* MyMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D383AB28A3BAF900CAA438 /* MyMenuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuApp.swift; sourceTree = "<group>"; };
 		77D383AD28A3BAF900CAA438 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		77D383AA28A3BAF900CAA438 /* MyMenu */ = {
 			isa = PBXGroup;
 			children = (
+				778C485A28C1ADD300F46335 /* Info.plist */,
 				77D383B928A3BB2F00CAA438 /* Model.swift */,
 				77D383BB28A3BBCA00CAA438 /* ColorHexString.swift */,
 				77D383AB28A3BAF900CAA438 /* MyMenuApp.swift */,
@@ -286,6 +288,7 @@
 				DEVELOPMENT_TEAM = 7ATSUS6382;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyMenu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +318,7 @@
 				DEVELOPMENT_TEAM = 7ATSUS6382;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyMenu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
